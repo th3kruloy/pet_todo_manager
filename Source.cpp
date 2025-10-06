@@ -1,5 +1,6 @@
 #include <print>
 #include <conio.h>
+#include <limits>
 #include "task.h"
 
 bool enumerate_tasks();
@@ -37,7 +38,7 @@ int main() {
 		case 1: {
 			task* tmp_task = new task;
 			std::print("Write your task: ");
-			std::cin >> tmp_task->task_name;
+			std::getline(std::cin >> std::ws, tmp_task->task_name);
 			tasks.push_back(tmp_task);
 			break;
 		}
@@ -66,7 +67,7 @@ int main() {
 			{
 			case 1: {
 				std::println("Enter new task name: ");
-				std::cin >> tasks.at(selected_task_vector)->task_name;
+				std::getline(std::cin >> std::ws, tasks.at(selected_task_vector)->task_name);
 				break;
 			}
 			case 2: {
@@ -85,7 +86,7 @@ int main() {
 			if (enumerate_tasks()) {
 				system("pause");
 				continue;
-			}
+		}
 			std::println("Select task that you want to delete: ");
 			std::cin >> selected_task;
 
